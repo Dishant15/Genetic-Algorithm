@@ -1,4 +1,4 @@
-from pylab import *
+#from pylab import *
 import random
 import math
 gen_best = []
@@ -8,9 +8,13 @@ n = 0
 def initialization():
 	population = []
 	global n
-	for x in range(n+1):
-		individual = [random.randint(0,1) for x in range(8)]
-		population.append(individual)
+	for x in range(n):
+		member=[]
+		individual1 = [random.randint(0,1) for a in range(8)]
+		individual2 = [random.randint(0,1) for b in range(8)]
+		member.append(individual1)
+		member.append(individual2)
+		population.append(member)
 	return population
 
 def fitness(population):
@@ -20,7 +24,7 @@ def fitness(population):
 		pop_fitind = 0
 		weight = [128,64,32,16,8,4,2,1]
 		j = 0
-		for var in population[x]:
+		for var1,var2 in population[x]:
 			pop_fitind = pop_fitind +  var*weight[j]
 			j = j+ 1
 		pop_fit.append(pop_fitind)
@@ -58,7 +62,9 @@ def crossover(best_pop):
 
 n = 30
 population = initialization()
-pop_size = []
+print population
+print len(population)
+"""pop_size = []
 goal = [1,1,1,1,1,1,1,1]
 
 print "Inital population:\n",population
@@ -108,3 +114,4 @@ ylabel('Best Gene')
 title('Genetic Algorithm')
 
 show()
+"""
