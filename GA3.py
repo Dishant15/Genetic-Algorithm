@@ -2,16 +2,17 @@
 import random
 import math
 gen_best = []
-n = 0
+
 
 #initilization of population
-def initialization():
+def initialization(mem_no,tot_mem):
 	population = []
-	global n
-	for x in range(n):
-		member=[]
-		individual1 = [random.randint(0,1) for a in range(8)]
-		individual2 = [random.randint(0,1) for b in range(8)]
+	
+	for x in range(tot_mem):
+		for y in range(mem_no):
+		
+		individual = [random.randint(0,1) for a in range(8)]
+		
 		member.append(individual1)
 		member.append(individual2)
 		population.append(member)
